@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Where2Charge | The Unified EV Charging Aggregator</title>
+  <meta name="description" content="Say goodbye to app fatigue. Where2Charge connects all fragmented EV charging networks into one seamless app.">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              green: '#10B981',
+              dark: '#0F172A',
+              accent: '#059669',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YOUR_MEASUREMENT_ID');
+  </script>
+</head>
+<body class="bg-slate-900 text-slate-100 antialiased font-sans">
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-900/90 backdrop-blur border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-emerald-500 rounded-xl flex items-center justify-center text-slate-950 font-bold text-xl">⚡</div>
+        <span class="font-extrabold text-xl tracking-tight text-white">Where<span class="text-emerald-400">2</span>Charge</span>
+      </div>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="#drivers" class="hover:text-emerald-400 transition">For Drivers</a>
+        <a href="#cpo" class="hover:text-emerald-400 transition">For CPO Partners</a>
+      </div>
+      <a href="#download" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold px-5 py-2.5 rounded-full text-sm transition">
+        Get App
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section (Primary Focus: Drivers) -->
+  <section class="pt-36 pb-20 px-6 max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center" id="download">
+    <div>
+      <span class="inline-block px-4 py-1.5 bg-emerald-500/10 text-emerald-400 rounded-full text-xs font-semibold tracking-wide border border-emerald-500/20 mb-6">
+        4ABnC EV CHARGE NETWORK
+      </span>
+      <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6">
+        Never Settle for a <span class="text-emerald-400">Dead Charger</span> Again.
+      </h1>
+      <p class="text-slate-400 text-lg mb-8 leading-relaxed">
+        The Expedia for EV charging. Eliminate app fatigue and RFID card hassle by accessing fragmented charging networks in real-time through one single app.
+      </p>
+
+      <!-- App Download Store Buttons -->
+      <div class="flex flex-wrap items-center gap-4 mb-8">
+        <!-- App Store Badge -->
+        <a href="YOUR_APPLE_APP_STORE_URL" target="_blank" rel="noopener"
+           onclick="gtag('event', 'click', {'event_category': 'App_Download', 'event_label': 'App Store'});"
+           class="inline-block hover:opacity-90 transition">
+          <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" 
+               alt="Download on the App Store" class="h-14">
+        </a>
+        <!-- Play Store Badge -->
+        <a href="YOUR_GOOGLE_PLAY_STORE_URL" target="_blank" rel="noopener"
+           onclick="gtag('event', 'click', {'event_category': 'App_Download', 'event_label': 'Google Play'});"
+           class="inline-block hover:opacity-90 transition">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" 
+               alt="Get it on Google Play" class="h-14">
+        </a>
+      </div>
+      <p class="text-xs text-slate-500">Free download • Live availability • Universal 1-tap checkout</p>
+    </div>
+
+    <!-- Mobile Visual Preview -->
+    <div class="relative flex justify-center">
+      <div class="w-72 h-[550px] bg-slate-800 rounded-[40px] border-4 border-slate-700 shadow-2xl p-4 flex flex-col justify-between relative overflow-hidden">
+        <div class="bg-slate-900 rounded-3xl p-4 flex-1 flex flex-col justify-between border border-slate-700/50">
+          <div>
+            <div class="text-xs text-emerald-400 font-semibold mb-1">⚡ Live Nearby</div>
+            <div class="text-white font-bold text-lg">Central Plaza CPO</div>
+            <div class="text-xs text-slate-400 mb-4">120 kW Supercharger • 2/4 Available</div>
+            <div class="bg-emerald-500/10 border border-emerald-500/30 p-3 rounded-xl mb-3 text-xs text-emerald-300">
+              ✓ Hardware Verification Confirmed
+            </div>
+          </div>
+          <button class="w-full py-3 bg-emerald-500 text-slate-950 font-bold rounded-xl text-center text-sm">
+            1-Tap Plug & Charge
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Driver Features -->
+  <section class="py-20 bg-slate-950 border-y border-slate-800" id="drivers">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center text-white mb-12">Designed for the Modern EV Driver</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800">
+          <div class="text-3xl mb-4">🗺️</div>
+          <h3 class="text-xl font-bold text-white mb-2">Universal Charger Map</h3>
+          <p class="text-slate-400 text-sm">Real-time status updates and crowdsourced validation across all independent CPOs.</p>
+        </div>
+        <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800">
+          <div class="text-3xl mb-4">💳</div>
+          <h3 class="text-xl font-bold text-white mb-2">Single Wallet</h3>
+          <p class="text-slate-400 text-sm">Pay seamlessly using Credit Cards, Apple Pay, or Google Pay without managing multiple accounts.</p>
+        </div>
+        <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800">
+          <div class="text-3xl mb-4">🏆</div>
+          <h3 class="text-xl font-bold text-white mb-2">Unified Rewards</h3>
+          <p class="text-slate-400 text-sm">Earn discounts and points on every charging session, regardless of the charger network provider.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Secondary Focus: CPO Integration -->
+  <section class="py-24 max-w-7xl mx-auto px-6" id="cpo">
+    <div class="bg-gradient-to-r from-slate-800 to-slate-900 rounded-3xl p-8 md:p-12 border border-slate-700 grid lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <span class="text-emerald-400 font-semibold text-xs tracking-widest uppercase mb-2 block">For Charge Point Operators</span>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Maximize Charger Utilization & Driver Reach</h2>
+        <p class="text-slate-300 text-sm leading-relaxed mb-6">
+          Bypass hardware restrictions with our open software aggregation layer. Connect your chargers to thousands of cross-border and regional fleet drivers without modifying your existing infrastructure.
+        </p>
+        <ul class="text-slate-300 text-sm space-y-3 mb-8">
+          <li class="flex items-center gap-2">✓ Capital-light, instant API software onboarding</li>
+          <li class="flex items-center gap-2">✓ Direct driver traffic pipeline & reduced acquisition costs</li>
+        </ul>
+      </div>
+
+      <!-- CPO Contact Actions -->
+      <div class="bg-slate-950 p-8 rounded-2xl border border-slate-800 flex flex-col gap-4">
+        <h3 class="text-xl font-bold text-white">Partner with 4ABnC EV CHARGE</h3>
+        <p class="text-xs text-slate-400 mb-2">Speak directly with our technical integration team today.</p>
+
+        <!-- WhatsApp Link -->
+        <a href="https://wa.me/YOUR_PHONE_NUMBER?text=Hi%204ABNC%20team,%20I%20would%20like%20to%20discuss%20CPO/Fleet%20integration%20on%20your%20EV%20platform." 
+           target="_blank" rel="noopener"
+           onclick="gtag('event', 'click', {'event_category': 'CPO_Lead', 'event_label': 'WhatsApp Integration'});"
+           class="flex items-center justify-center gap-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 px-6 rounded-xl transition text-center text-sm">
+          💬 Chat with us on WhatsApp
+        </a>
+
+        <div class="text-center text-xs text-slate-500 my-1">— OR —</div>
+
+        <!-- Direct Email CTA -->
+        <a href="mailto:partner@4abnc.com" class="text-center bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold py-3 px-6 rounded-xl text-sm transition">
+          Email CPO Support Team
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800 py-12 bg-slate-950 text-slate-500 text-xs">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div>
+        <p class="text-slate-400 font-medium">Powered by 4ABnC EV CHARGE</p>
+        <p class="mt-1">© 2026 Where2Charge. All rights reserved.</p>
+      </div>
+      <div class="flex gap-6">
+        <a href="/privacy.html" class="hover:text-slate-300 transition">Privacy Policy</a>
+        <a href="mailto:support@4abnc.com" class="hover:text-slate-300 transition">Support</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
