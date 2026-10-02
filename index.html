@@ -3,190 +3,271 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Where2Charge | Powered by 4ABnC</title>
-  <meta name="description" content="One app is all you need for EV charging. Say goodbye to juggling multiple apps across different charging networks.">
+  <title>Where2Charge is live in Singapore! ⚡</title>
+  <meta name="description" content="Where2Charge puts EV charging points across Singapore on one map, with live availability so you know what's free before you set off.">
+
+  <!-- Social sharing previews (WhatsApp, LinkedIn, X, etc.) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://where2charge.4abnc.com/">
+  <meta property="og:title" content="Where2Charge is live in Singapore! ⚡">
+  <meta property="og:description" content="Every EV charging point across the island on one map, with live availability.">
+  <meta property="og:image" content="https://where2charge.4abnc.com/app1.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://where2charge.4abnc.com/">
 
   <!-- Browser Tab Favicon Logo -->
   <link rel="icon" type="image/png" href="favicon.png">
 
-  <!-- Tailwind CSS via CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              green: '#10B981',
-              dark: '#0F172A',
-              accent: '#059669',
-            }
-          }
-        }
-      }
-    }
-  </script>
+  <link rel="stylesheet" href="tailwind.css">
 
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_MEASUREMENT_ID"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-66145CF3RP"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-YOUR_MEASUREMENT_ID');
+    gtag('config', 'G-66145CF3RP');
   </script>
+
+  <style>
+    .dot-grid {
+      background-image: radial-gradient(rgba(148, 163, 184, 0.12) 1px, transparent 1px);
+      background-size: 22px 22px;
+    }
+    .live-dot { animation: pulse-ring 1.8s ease-out infinite; }
+    @keyframes pulse-ring {
+      0%   { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.6); }
+      100% { box-shadow: 0 0 0 10px rgba(52, 211, 153, 0); }
+    }
+    @media (prefers-reduced-motion: reduce) { .live-dot { animation: none; } }
+  </style>
 </head>
 <body class="bg-slate-900 text-slate-100 antialiased font-sans">
 
   <!-- Navigation -->
   <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-900/90 backdrop-blur border-b border-slate-800">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-      <div class="flex items-center gap-3">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-3">
+      <a href="#top" class="flex items-center gap-3">
         <div class="w-10 h-10 bg-emerald-500 rounded-xl flex items-center justify-center text-slate-950 font-bold text-xl">⚡</div>
         <span class="font-extrabold text-xl tracking-tight text-white">Where<span class="text-emerald-400">2</span>Charge</span>
-      </div>
+      </a>
       <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-        <a href="#screens" class="hover:text-emerald-400 transition">App Showcase</a>
-        <a href="#drivers" class="hover:text-emerald-400 transition">For Drivers</a>
-        <a href="#cpo" class="hover:text-emerald-400 transition">For CPO Partners</a>
+        <a href="#features" class="hover:text-emerald-400 transition">What you can do</a>
+        <a href="#community" class="hover:text-emerald-400 transition">Community</a>
+        <a href="#feedback" class="hover:text-emerald-400 transition">Feedback</a>
       </div>
-      <a href="#download" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold px-5 py-2.5 rounded-full text-sm transition">
-        Get App
+      <a href="#download" class="whitespace-nowrap bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold px-4 sm:px-5 py-2.5 rounded-full text-sm transition">
+        Get the app
       </a>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="pt-36 pb-16 px-6 max-w-7xl mx-auto text-center" id="download">
-    <span class="inline-block px-4 py-1.5 bg-emerald-500/10 text-emerald-400 rounded-full text-xs font-semibold tracking-wide border border-emerald-500/20 mb-6">
-      Where2Charge Powered by 4ABnC
-    </span>
-    
-    <!-- Primary Key Message -->
-    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6 max-w-4xl mx-auto">
-      One App is <span class="text-emerald-400">All You Need</span> for EV Charging.
-    </h1>
-    <p class="text-slate-400 text-lg md:text-xl mb-8 leading-relaxed max-w-2xl mx-auto">
-      No more juggling multiple apps or RFID cards. Access, locate, and pay across all EV charging networks through a single unified app.
-    </p>
+  <!-- Hero: Launch announcement -->
+  <header id="top" class="relative overflow-hidden">
+    <div class="absolute inset-0 dot-grid" aria-hidden="true"></div>
+    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full bg-emerald-500/10 blur-3xl" aria-hidden="true"></div>
 
-    <!-- App Store Download Badges -->
-    <div class="flex flex-wrap items-center justify-center gap-4 mb-6">
-      <a href="YOUR_APPLE_APP_STORE_URL" target="_blank" rel="noopener"
-         onclick="gtag('event', 'click', {'event_category': 'App_Download', 'event_label': 'App Store'});"
-         class="inline-block hover:opacity-90 transition">
-        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" 
-             alt="Download on the App Store" class="h-14">
-      </a>
-      <a href="YOUR_GOOGLE_PLAY_STORE_URL" target="_blank" rel="noopener"
-         onclick="gtag('event', 'click', {'event_category': 'App_Download', 'event_label': 'Google Play'});"
-         class="inline-block hover:opacity-90 transition">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" 
-             alt="Get it on Google Play" class="h-14">
-      </a>
-    </div>
-    <p class="text-xs text-slate-500">Free download • Live availability • Universal 1-tap checkout</p>
-  </section>
+    <div class="relative max-w-7xl mx-auto px-6 pt-32 md:pt-40 pb-20 grid lg:grid-cols-2 gap-14 items-center">
+      <div class="text-center lg:text-left">
+        <span class="inline-flex items-center gap-2.5 px-4 py-1.5 bg-emerald-500/10 text-emerald-300 rounded-full text-xs font-semibold tracking-wide border border-emerald-500/25 mb-6">
+          <span class="live-dot w-2 h-2 rounded-full bg-emerald-400"></span>
+          Now live across Singapore 🇸🇬
+        </span>
 
-  <!-- 3 Screen Showcase Section -->
-  <section class="py-12 px-6 max-w-7xl mx-auto border-b border-slate-800" id="screens">
-    <div class="text-center mb-12">
-      <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Designed for Day, Night, and Seamless Filtering</h2>
-      <p class="text-slate-400 text-sm">Experience the app interface crafted for quick navigation and precise charger discovery.</p>
-    </div>
-
-    <!-- 3 Screen Mockup Grid -->
-    <div class="grid md:grid-cols-3 gap-8 items-start">
-      
-      <!-- Screen 1: Day Map View -->
-      <div class="flex flex-col items-center">
-        <div class="w-full max-w-[280px] bg-slate-800 rounded-[32px] border-4 border-slate-700 shadow-2xl p-2 overflow-hidden mb-4 hover:border-emerald-500/50 transition">
-          <img src="app1.png" alt="Where2Charge Day Map View" class="w-full h-auto rounded-[24px]">
-        </div>
-        <h3 class="text-lg font-bold text-white">Day Map View</h3>
-        <p class="text-xs text-slate-400 text-center mt-1">High-visibility map with real-time green/red charger availability pins.</p>
-      </div>
-
-      <!-- Screen 2: Night Map View -->
-      <div class="flex flex-col items-center">
-        <div class="w-full max-w-[280px] bg-slate-800 rounded-[32px] border-4 border-slate-700 shadow-2xl p-2 overflow-hidden mb-4 hover:border-emerald-500/50 transition">
-          <img src="app2.png" alt="Where2Charge Night Map View" class="w-full h-auto rounded-[24px]">
-        </div>
-        <h3 class="text-lg font-bold text-white">Night Map View</h3>
-        <p class="text-xs text-slate-400 text-center mt-1">Sleek dark mode for low-light driving comfort.</p>
-      </div>
-
-      <!-- Screen 3: Filter Settings View -->
-      <div class="flex flex-col items-center">
-        <div class="w-full max-w-[280px] bg-slate-800 rounded-[32px] border-4 border-slate-700 shadow-2xl p-2 overflow-hidden mb-4 hover:border-emerald-500/50 transition">
-          <img src="app3.png" alt="Where2Charge Filter Settings View" class="w-full h-auto rounded-[24px]">
-        </div>
-        <h3 class="text-lg font-bold text-white">Filter & Search View</h3>
-        <p class="text-xs text-slate-400 text-center mt-1">Filter instantly by distance, AC/DC current, speed, and connector type.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Driver Features -->
-  <section class="py-20 bg-slate-950 border-b border-slate-800" id="drivers">
-    <div class="max-w-7xl mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center text-white mb-12">Why Drivers Choose Where2Charge</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800">
-          <div class="text-3xl mb-4">🗺️</div>
-          <h3 class="text-xl font-bold text-white mb-2">Universal Charger Map</h3>
-          <p class="text-slate-400 text-sm">Real-time status updates and crowdsourced validation across all independent CPOs.</p>
-        </div>
-        <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800">
-          <div class="text-3xl mb-4">💳</div>
-          <h3 class="text-xl font-bold text-white mb-2">Single Wallet</h3>
-          <p class="text-slate-400 text-sm">Pay seamlessly using Credit Cards, Apple Pay, or Google Pay without managing multiple accounts.</p>
-        </div>
-        <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800">
-          <div class="text-3xl mb-4">🏆</div>
-          <h3 class="text-xl font-bold text-white mb-2">Unified Rewards</h3>
-          <p class="text-slate-400 text-sm">Earn discounts and points on every charging session, regardless of the charger network provider.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Secondary Focus: CPO Integration -->
-  <section class="py-24 max-w-7xl mx-auto px-6" id="cpo">
-    <div class="bg-gradient-to-r from-slate-800 to-slate-900 rounded-3xl p-8 md:p-12 border border-slate-700 grid lg:grid-cols-2 gap-10 items-center">
-      <div>
-        <span class="text-emerald-400 font-semibold text-xs tracking-widest uppercase mb-2 block">For Charge Point Operators</span>
-        <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Maximize Charger Utilization & Driver Reach</h2>
-        <p class="text-slate-300 text-sm leading-relaxed mb-6">
-          Bypass hardware restrictions with our open software aggregation layer. Connect your chargers to thousands of cross-border and regional fleet drivers without modifying your existing infrastructure.
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-[1.05] mb-6">
+          Where2Charge is <span class="text-emerald-400">live in <span class="whitespace-nowrap">Singapore!</span></span>&nbsp;⚡
+        </h1>
+        <p class="text-slate-200 text-lg md:text-xl font-medium mb-3">
+          We're excited to announce that Where2Charge is officially here.
         </p>
-        <ul class="text-slate-300 text-sm space-y-3 mb-8">
-          <li class="flex items-center gap-2">✓ Capital-light, instant API software onboarding</li>
-          <li class="flex items-center gap-2">✓ Direct driver traffic pipeline & reduced acquisition costs</li>
-        </ul>
+        <p class="text-slate-400 text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
+          Finding a charger in Singapore just got easier. Where2Charge puts EV charging points across the island on one map, with live availability so you know what's free before you set off.
+        </p>
+
+        <!-- App Store Download Badges (replace the placeholder URLs) -->
+        <div id="download" class="scroll-mt-28 flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-5">
+          <a href="YOUR_APPLE_APP_STORE_URL" target="_blank" rel="noopener"
+             onclick="gtag('event', 'click', {'event_category': 'App_Download', 'event_label': 'App Store'});"
+             class="inline-block hover:opacity-90 transition">
+            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
+                 alt="Download on the App Store" class="h-14">
+          </a>
+          <a href="YOUR_GOOGLE_PLAY_STORE_URL" target="_blank" rel="noopener"
+             onclick="gtag('event', 'click', {'event_category': 'App_Download', 'event_label': 'Google Play'});"
+             class="inline-block hover:opacity-90 transition">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                 alt="Get it on Google Play" class="h-14">
+          </a>
+        </div>
+        <p class="text-xs text-slate-500">Free download • Live availability • Island-wide coverage</p>
       </div>
 
-      <!-- CPO Contact Action (WhatsApp Only) -->
-      <div class="bg-slate-950 p-8 rounded-2xl border border-slate-800 flex flex-col gap-4">
-        <h3 class="text-xl font-bold text-white">Partner with Where2Charge Powered by 4ABnC</h3>
-        <p class="text-xs text-slate-400 mb-2">Connect directly with our integration team on WhatsApp.</p>
-
-        <!-- WhatsApp Link -->
-        <a href="https://wa.me/6581683119?text=Hi%204ABNC%20team,%20I%20would%20like%20to%20discuss%20CPO/Fleet%20integration%20on%20your%20EV%20platform." 
-           target="_blank" rel="noopener"
-           onclick="gtag('event', 'click', {'event_category': 'CPO_Lead', 'event_label': 'WhatsApp Integration'});"
-           class="flex items-center justify-center gap-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 px-6 rounded-xl transition text-center text-sm">
-          💬 Chat with us on WhatsApp
-        </a>
+      <!-- Hero phone -->
+      <div class="flex justify-center lg:justify-end">
+        <div class="relative">
+          <div class="absolute inset-6 rounded-[40px] bg-emerald-500/25 blur-3xl" aria-hidden="true"></div>
+          <div class="relative w-[260px] sm:w-[300px] bg-slate-800 rounded-[36px] border-4 border-slate-700 shadow-2xl p-2 rotate-[-2deg]">
+            <img src="app1.png" alt="Where2Charge map of Singapore showing live charger availability" width="373" height="634" class="w-full h-auto rounded-[28px]">
+          </div>
+          <div class="absolute -left-6 sm:-left-14 bottom-16 bg-slate-950/95 border border-slate-700 rounded-2xl px-4 py-3 shadow-xl flex items-center gap-3">
+            <span class="w-3 h-3 rounded-full bg-emerald-400"></span>
+            <div class="text-left">
+              <p class="text-xs font-semibold text-white leading-tight">Charger free now</p>
+              <p class="text-[11px] text-slate-400 leading-tight">Live status, before you drive</p>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+  </header>
+
+  <!-- What you can do today -->
+  <section id="features" class="scroll-mt-20 py-20 bg-slate-950 border-y border-slate-800">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <span class="text-emerald-400 font-semibold text-xs tracking-widest uppercase mb-3 block">Available now</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-white">What you can do today</h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-slate-900 p-7 rounded-2xl border border-slate-800 hover:border-emerald-500/40 transition">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-5">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Find chargers near you</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Wherever you are on the island, see every nearby charging point on one map.</p>
+        </div>
+
+        <div class="bg-slate-900 p-7 rounded-2xl border border-slate-800 hover:border-emerald-500/40 transition">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-5">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12h4l3-8 4 16 3-8h4"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Check live status</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Know what's free before you drive over, so you never arrive to a full bay.</p>
+        </div>
+
+        <div class="bg-slate-900 p-7 rounded-2xl border border-slate-800 hover:border-emerald-500/40 transition">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-5">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Read driver reviews</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Hear from fellow EV drivers about what each charging spot is really like.</p>
+        </div>
+
+        <div class="bg-slate-900 p-7 rounded-2xl border border-slate-800 hover:border-emerald-500/40 transition">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-5">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 3h12v18l-6-4-6 4V3Z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Bookmark your spots</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Save your go-to charging spots and get back to them in a tap.</p>
+        </div>
+      </div>
+
+      <!-- App screens -->
+      <div class="grid md:grid-cols-3 gap-10 mt-20 items-start">
+        <figure class="flex flex-col items-center">
+          <div class="w-full max-w-[260px] bg-slate-800 rounded-[32px] border-4 border-slate-700 shadow-2xl p-2 mb-4">
+            <img src="app1.png" alt="Day map view" width="373" height="634" loading="lazy" class="w-full h-auto rounded-[24px]">
+          </div>
+          <figcaption class="text-center">
+            <p class="font-semibold text-white">Day map</p>
+            <p class="text-xs text-slate-400 mt-1">Green pins are free, red pins are in use.</p>
+          </figcaption>
+        </figure>
+        <figure class="flex flex-col items-center">
+          <div class="w-full max-w-[260px] bg-slate-800 rounded-[32px] border-4 border-slate-700 shadow-2xl p-2 mb-4">
+            <img src="app2.png" alt="Night map view" width="369" height="645" loading="lazy" class="w-full h-auto rounded-[24px]">
+          </div>
+          <figcaption class="text-center">
+            <p class="font-semibold text-white">Night map</p>
+            <p class="text-xs text-slate-400 mt-1">Easy on the eyes after dark.</p>
+          </figcaption>
+        </figure>
+        <figure class="flex flex-col items-center">
+          <div class="w-full max-w-[260px] bg-slate-800 rounded-[32px] border-4 border-slate-700 shadow-2xl p-2 mb-4">
+            <img src="app3.png" alt="Filter and search view" width="372" height="645" loading="lazy" class="w-full h-auto rounded-[24px]">
+          </div>
+          <figcaption class="text-center">
+            <p class="font-semibold text-white">Filters</p>
+            <p class="text-xs text-slate-400 mt-1">Distance, AC/DC, speed, connector and favourites.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community -->
+  <section id="community" class="scroll-mt-20 py-24 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14">
+        <span class="text-emerald-400 font-semibold text-xs tracking-widest uppercase mb-3 block">Built by drivers, for drivers</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-5">Help us build the best charging map in Singapore</h2>
+        <p class="text-slate-400 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+          Where2Charge gets better with every driver who joins. Next time you charge, leave a quick review and share what you found. Your tips help everyone charge with confidence.
+        </p>
+      </div>
+
+      <ol class="grid md:grid-cols-3 gap-6">
+        <li class="relative bg-slate-800/50 border border-slate-700/70 rounded-2xl p-7">
+          <span class="text-5xl font-extrabold text-emerald-500/20 absolute top-4 right-6" aria-hidden="true">1</span>
+          <h3 class="text-lg font-bold text-white mb-2">Charge</h3>
+          <p class="text-sm text-slate-400">Find a free charger on the map and plug in as usual.</p>
+        </li>
+        <li class="relative bg-slate-800/50 border border-slate-700/70 rounded-2xl p-7">
+          <span class="text-5xl font-extrabold text-emerald-500/20 absolute top-4 right-6" aria-hidden="true">2</span>
+          <h3 class="text-lg font-bold text-white mb-2">Review</h3>
+          <p class="text-sm text-slate-400">Leave a quick rating. Was it working, easy to find, worth the trip?</p>
+        </li>
+        <li class="relative bg-slate-800/50 border border-slate-700/70 rounded-2xl p-7">
+          <span class="text-5xl font-extrabold text-emerald-500/20 absolute top-4 right-6" aria-hidden="true">3</span>
+          <h3 class="text-lg font-bold text-white mb-2">Share</h3>
+          <p class="text-sm text-slate-400">Add tips for the next driver: parking, access, opening hours.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Feedback + sign-off -->
+  <section id="feedback" class="scroll-mt-20 pb-24 px-6">
+    <div class="max-w-4xl mx-auto bg-gradient-to-br from-emerald-500/15 via-slate-800 to-slate-900 border border-emerald-500/20 rounded-3xl p-8 md:p-12 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">This is just the beginning</h2>
+      <p class="text-slate-300 leading-relaxed max-w-2xl mx-auto mb-8">
+        We have more features on the way. Got an idea or spotted something we should fix? Tap <strong class="text-white">"Send feedback"</strong> and let us know. We read every message.
+      </p>
+      <a href="https://wa.me/6581683119?text=Hi%20Where2Charge%20team,%20I%20have%20some%20feedback:%20"
+         target="_blank" rel="noopener"
+         onclick="gtag('event', 'click', {'event_category': 'Feedback', 'event_label': 'Send feedback'});"
+         class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-3.5 px-8 rounded-full transition">
+        💬 Send feedback
+      </a>
+
+      <div class="mt-12 pt-8 border-t border-slate-700/60">
+        <p class="text-slate-400 italic">Thanks for charging with us,</p>
+        <p class="text-white font-semibold mt-1">The Where2Charge Team</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CPO partners (secondary) -->
+  <section id="cpo" class="border-t border-slate-800 bg-slate-950 py-12 px-6">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+      <div>
+        <p class="text-emerald-400 font-semibold text-xs tracking-widest uppercase mb-1">For Charge Point Operators</p>
+        <p class="text-slate-300 text-sm">Want your chargers on the Where2Charge map? Talk to our integration team.</p>
+      </div>
+      <a href="https://wa.me/6581683119?text=Hi%204ABNC%20team,%20I%20would%20like%20to%20discuss%20CPO/Fleet%20integration%20on%20your%20EV%20platform."
+         target="_blank" rel="noopener"
+         onclick="gtag('event', 'click', {'event_category': 'CPO_Lead', 'event_label': 'WhatsApp Integration'});"
+         class="shrink-0 border border-slate-600 hover:border-emerald-400 hover:text-emerald-300 text-slate-200 font-semibold py-2.5 px-6 rounded-full transition text-sm">
+        Partner with us
+      </a>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="border-t border-slate-800 py-12 bg-slate-950 text-slate-500 text-xs">
+  <footer class="border-t border-slate-800 py-10 bg-slate-950 text-slate-500 text-xs">
     <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-      <div>
+      <div class="text-center md:text-left">
         <p class="text-slate-400 font-medium">Where2Charge Powered by 4ABnC</p>
         <p class="mt-1">© 2026 Where2Charge. All rights reserved.</p>
       </div>
