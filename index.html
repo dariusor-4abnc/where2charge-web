@@ -1,24 +1,34 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en-SG" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Where2Charge: EV chargers &amp; parking fees in Singapore</title>
-  <meta name="description" content="Live availability for 2,600+ EV chargers across Singapore, plus the car park fee that applies right now. Filter by speed, connector and free parking.">
+  <title>Where2Charge: find an available EV charger in Singapore</title>
+  <meta name="description" content="Find an available EV charger in Singapore and a backup nearby. Check charger status, filter by connector and speed, and see charging prices and parking information where available.">
+  <meta name="theme-color" content="#0f172a">
 
   <!-- Social sharing previews (WhatsApp, LinkedIn, X, etc.) -->
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Where2Charge">
+  <meta property="og:locale" content="en_SG">
   <meta property="og:url" content="https://where2charge.4abnc.com/">
-  <meta property="og:title" content="Where2Charge: EV chargers &amp; parking fees in Singapore">
-  <meta property="og:description" content="Live availability for 2,600+ chargers, plus the parking fee that applies right now.">
+  <meta property="og:title" content="Where2Charge: find an available EV charger in Singapore">
+  <meta property="og:description" content="Find an available EV charger. Have a backup nearby. Charger status, prices and parking information where available.">
   <meta property="og:image" content="https://where2charge.4abnc.com/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Where2Charge app showing nearby chargers and how many connectors are available">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Where2Charge: find an available EV charger in Singapore">
+  <meta name="twitter:description" content="Find an available EV charger. Have a backup nearby.">
+  <meta name="twitter:image" content="https://where2charge.4abnc.com/og-image.jpg">
   <link rel="canonical" href="https://where2charge.4abnc.com/">
 
   <!-- Browser Tab Favicon Logo -->
   <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
+  <link rel="preload" as="image" href="shot-list.jpg">
   <link rel="stylesheet" href="tailwind.css">
 
   <!-- Google tag (gtag.js) -->
@@ -35,310 +45,302 @@
       background-image: radial-gradient(rgba(148, 163, 184, 0.12) 1px, transparent 1px);
       background-size: 22px 22px;
     }
-    .live-dot { animation: pulse-ring 1.8s ease-out infinite; }
-    @keyframes pulse-ring {
-      0%   { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.6); }
-      100% { box-shadow: 0 0 0 10px rgba(52, 211, 153, 0); }
-    }
-    @media (prefers-reduced-motion: reduce) { .live-dot { animation: none; } }
   </style>
 </head>
 <body class="bg-slate-900 text-slate-100 antialiased font-sans">
 
-  <!-- Navigation -->
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-900/90 backdrop-blur border-b border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-3">
-      <a href="#top" class="flex items-center gap-3">
-        <img src="logo.png" alt="" width="40" height="40" class="w-10 h-10 rounded-xl">
-        <span class="font-extrabold text-xl tracking-tight text-white">Where<span class="text-emerald-400">2</span>Charge</span>
-      </a>
-      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-        <a href="#features" class="hover:text-emerald-400 transition">Features</a>
-        <a href="#parking" class="hover:text-emerald-400 transition">Parking fees</a>
-        <a href="#community" class="hover:text-emerald-400 transition">Community</a>
-        <a href="#feedback" class="hover:text-emerald-400 transition">Feedback</a>
-      </div>
-      <a href="#download"
-         class="whitespace-nowrap bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold px-4 sm:px-5 py-2.5 rounded-full text-sm transition">
-        Get the app
-      </a>
-    </div>
-  </nav>
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60] focus:bg-white focus:text-slate-900 focus:px-4 focus:py-2 focus:rounded-lg focus:font-semibold">Skip to content</a>
 
-  <!-- Hero: Launch announcement -->
-  <header id="top" class="relative overflow-hidden">
+  <!-- Navigation -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-slate-900/90 backdrop-blur border-b border-slate-800">
+    <nav aria-label="Main" class="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-3">
+      <a href="#top" class="flex items-center gap-3 rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-400">
+        <img src="logo.png" alt="" width="40" height="40" class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl">
+        <span class="font-extrabold text-lg sm:text-xl tracking-tight text-white">Where<span class="text-emerald-400">2</span>Charge</span>
+      </a>
+      <div class="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-300">
+        <a href="#how-it-works" class="hover:text-emerald-400 transition">How it works</a>
+        <a href="#backup" class="hover:text-emerald-400 transition">Backup chargers</a>
+        <a href="#prices-parking" class="hover:text-emerald-400 transition">Prices &amp; parking</a>
+        <a href="#community" class="hover:text-emerald-400 transition">Community</a>
+        <a href="#operators" class="hover:text-emerald-400 transition">For operators</a>
+      </div>
+      <a href="https://app.where2charge.4abnc.com" target="_blank" rel="noopener"
+         class="whitespace-nowrap bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold px-4 sm:px-5 py-2.5 rounded-full text-sm transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300">
+        <span class="sm:hidden">Open app</span><span class="hidden sm:inline">Open Where2Charge</span><span class="sr-only"> (opens the web app in a new tab)</span>
+      </a>
+    </nav>
+  </header>
+
+  <main id="main">
+
+  <!-- 1. Hero -->
+  <section id="top" aria-labelledby="hero-title" class="relative overflow-hidden">
     <div class="absolute inset-0 dot-grid" aria-hidden="true"></div>
     <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full bg-emerald-500/10 blur-3xl" aria-hidden="true"></div>
 
-    <div class="relative max-w-7xl mx-auto px-6 pt-32 md:pt-40 pb-20 grid lg:grid-cols-2 gap-14 items-center">
+    <div class="relative max-w-7xl mx-auto px-5 sm:px-6 pt-24 sm:pt-32 lg:pt-36 pb-16 lg:pb-20 grid lg:grid-cols-2 gap-12 lg:gap-14 items-center">
       <div class="text-center lg:text-left">
-        <span class="inline-flex items-center gap-2.5 px-4 py-1.5 bg-emerald-500/10 text-emerald-300 rounded-full text-xs font-semibold tracking-wide border border-emerald-500/25 mb-6">
-          <span class="live-dot w-2 h-2 rounded-full bg-emerald-400"></span>
-          Now live across Singapore 🇸🇬
-        </span>
-
-        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-[1.05] mb-6">
-          Find a free charger. <span class="text-emerald-400">Know the parking fee.</span>
-        </h1>
-        <p class="text-slate-400 text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto lg:mx-0">
-          Live availability for <strong class="text-white">2,600+ chargers</strong> across Singapore, plus the car park fee that applies right now. Filter by speed, connector and free parking, then tap to navigate.
+        <p class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-emerald-500/10 text-emerald-300 rounded-full text-xs font-semibold tracking-wide border border-emerald-500/25 mb-5">
+          For EV drivers in Singapore
         </p>
 
-        <!-- Store downloads, with the web app as a secondary option -->
-        <div id="download" class="scroll-mt-28 flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 mb-4">
-          <a href="https://apps.apple.com/app/where2charge-ev-charging-sg/id6819050525" target="_blank" rel="noopener"
-             onclick="gtag('event', 'click', {'event_category': 'App_Download', 'event_label': 'App Store'});"
-             class="inline-block hover:opacity-90 transition">
-            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
-                 alt="Download on the App Store" class="h-12 sm:h-14">
-          </a>
-          <a href="https://play.google.com/store/apps/details?id=com.abnc.where2charge" target="_blank" rel="noopener"
-             onclick="gtag('event', 'click', {'event_category': 'App_Download', 'event_label': 'Google Play'});"
-             class="inline-block hover:opacity-90 transition">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
-                 alt="Get it on Google Play" class="h-12 sm:h-14">
-          </a>
-        </div>
-        <p class="mb-4 text-sm">
+        <h1 id="hero-title" class="text-[2.15rem] leading-[1.08] sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-5">
+          Find an available EV charger. <span class="text-emerald-400">Have a backup nearby.</span>
+        </h1>
+        <p class="text-slate-300 text-base sm:text-lg leading-relaxed mb-7 max-w-xl mx-auto lg:mx-0">
+          Check charger availability across Singapore, find a compatible alternative when a bay is occupied, and view charging and parking information, where available, before you go.
+        </p>
+
+        <div class="flex flex-col items-center lg:items-start gap-3 mb-6">
           <a href="https://app.where2charge.4abnc.com" target="_blank" rel="noopener"
              onclick="gtag('event', 'click', {'event_category': 'App_Open', 'event_label': 'Hero'});"
-             class="font-semibold text-emerald-400 hover:text-emerald-300 transition">Or open Where2Charge in your browser <span aria-hidden="true">→</span></a>
-        </p>
-        <p class="text-xs text-slate-500">Free • iPhone and Android • No sign-up needed to browse</p>
+             class="w-full sm:w-auto h-14 inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-lg font-bold px-8 rounded-xl shadow-lg shadow-emerald-500/20 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300">
+            Open Where2Charge <span aria-hidden="true">→</span><span class="sr-only"> (opens the web app in a new tab)</span>
+          </a>
+          <p class="text-sm text-slate-300">Free to use. No sign-up needed to browse.</p>
+        </div>
+
+        <!-- Native apps -->
+        <div id="download" class="scroll-mt-24">
+          <p class="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-3">Also on iPhone and Android</p>
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3">
+            <a href="https://apps.apple.com/app/where2charge-ev-charging-sg/id6819050525" target="_blank" rel="noopener"
+               onclick="gtag('event', 'click', {'event_category': 'App_Download', 'event_label': 'App Store'});"
+               class="inline-block rounded-lg hover:opacity-90 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300">
+              <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
+                   alt="Download Where2Charge on the App Store" width="150" height="50" class="h-11 sm:h-12 w-auto">
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.abnc.where2charge" target="_blank" rel="noopener"
+               onclick="gtag('event', 'click', {'event_category': 'App_Download', 'event_label': 'Google Play'});"
+               class="inline-block rounded-lg hover:opacity-90 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                   alt="Get Where2Charge on Google Play" width="169" height="50" class="h-11 sm:h-12 w-auto">
+            </a>
+          </div>
+        </div>
       </div>
 
-      <!-- Hero phone -->
+      <!-- Hero screenshot -->
       <div class="flex justify-center lg:justify-end">
-        <div class="relative">
+        <figure class="relative">
           <div class="absolute inset-6 rounded-[40px] bg-emerald-500/25 blur-3xl" aria-hidden="true"></div>
-          <div class="relative w-[260px] sm:w-[300px] bg-slate-800 rounded-[36px] border-4 border-slate-700 shadow-2xl p-2 rotate-[-2deg]">
-            <img src="shot-map.jpg" alt="Where2Charge map with green available and amber busy charger pins" width="640" height="1391" class="w-full h-auto rounded-[28px]">
+          <div class="relative w-[250px] sm:w-[290px] bg-slate-800 rounded-[36px] border-4 border-slate-700 shadow-2xl p-2">
+            <img src="shot-list.jpg" alt="Where2Charge app near Orchard Road: a map of chargers above a list sorted by nearest. ION Orchard shows 2 of 4 available, 100 kW DC, $0.74 per kWh." width="640" height="1385" fetchpriority="high" class="w-full h-auto rounded-[28px]">
           </div>
-          <div class="absolute -left-6 sm:-left-14 bottom-16 bg-slate-950/95 border border-slate-700 rounded-2xl px-4 py-3 shadow-xl flex items-center gap-3">
-            <span class="w-3 h-3 rounded-full bg-emerald-400"></span>
-            <div class="text-left">
-              <p class="text-xs font-semibold text-white leading-tight">Charger free now</p>
-              <p class="text-[11px] text-slate-400 leading-tight">Live status, before you drive</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- What you can do today -->
-  <section id="features" class="scroll-mt-20 py-20 bg-slate-950 border-y border-slate-800">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-14">
-        <span class="text-emerald-400 font-semibold text-xs tracking-widest uppercase mb-3 block">Available now</span>
-        <h2 class="text-3xl md:text-4xl font-bold text-white">Everything you need before you set off</h2>
-      </div>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="bg-slate-900 p-7 rounded-2xl border border-slate-800 hover:border-emerald-500/40 transition">
-          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-5">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12h4l3-8 4 16 3-8h4"/></svg>
-          </div>
-          <h3 class="text-lg font-bold text-white mb-2">Live status</h3>
-          <p class="text-slate-400 text-sm leading-relaxed">Green pins are free, amber pins are in use. Know before you drive over.</p>
-        </div>
-
-        <div class="bg-slate-900 p-7 rounded-2xl border border-emerald-500/40 transition">
-          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-5">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="3"/><path stroke-linecap="round" stroke-linejoin="round" d="M10 17V8h3a2.5 2.5 0 0 1 0 5h-3"/></svg>
-          </div>
-          <h3 class="text-lg font-bold text-white mb-2">Parking fee, right now <span class="ml-1 text-[10px] font-bold uppercase tracking-widest text-emerald-400">New</span></h3>
-          <p class="text-slate-400 text-sm leading-relaxed">See the car park fee that applies at this moment, separate from the charging fee.</p>
-        </div>
-
-        <div class="bg-slate-900 p-7 rounded-2xl border border-slate-800 hover:border-emerald-500/40 transition">
-          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-5">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 5h16l-6 7v6l-4 2v-8L4 5Z"/></svg>
-          </div>
-          <h3 class="text-lg font-bold text-white mb-2">Filter what fits</h3>
-          <p class="text-slate-400 text-sm leading-relaxed">By speed, AC or DC, connector and distance. Or show only chargers free now, or with free parking.</p>
-        </div>
-
-        <div class="bg-slate-900 p-7 rounded-2xl border border-slate-800 hover:border-emerald-500/40 transition">
-          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-5">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M7 4v16M7 20l-3-3M7 20l3-3M17 20V4M17 4l-3 3M17 4l3 3"/></svg>
-          </div>
-          <h3 class="text-lg font-bold text-white mb-2">Sort your way</h3>
-          <p class="text-slate-400 text-sm leading-relaxed">Nearest, cheapest or top rated. Free bays, speed and price per kWh at a glance.</p>
-        </div>
-
-        <div class="bg-slate-900 p-7 rounded-2xl border border-slate-800 hover:border-emerald-500/40 transition">
-          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-5">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m3 11 18-8-8 18-2-8-8-2Z"/></svg>
-          </div>
-          <h3 class="text-lg font-bold text-white mb-2">One tap to navigate</h3>
-          <p class="text-slate-400 text-sm leading-relaxed">Open directions in your favourite maps app. Distances update as you move.</p>
-        </div>
-
-        <div class="bg-slate-900 p-7 rounded-2xl border border-slate-800 hover:border-emerald-500/40 transition">
-          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-5">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
-          </div>
-          <h3 class="text-lg font-bold text-white mb-2">Day and night maps</h3>
-          <p class="text-slate-400 text-sm leading-relaxed">Follows your phone's light or dark setting, or pick one yourself.</p>
-        </div>
-
-        <div class="bg-slate-900 p-7 rounded-2xl border border-slate-800 hover:border-emerald-500/40 transition">
-          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-5">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z"/></svg>
-          </div>
-          <h3 class="text-lg font-bold text-white mb-2">Driver reviews</h3>
-          <p class="text-slate-400 text-sm leading-relaxed">Hear what each spot is really like from fellow EV drivers.</p>
-        </div>
-
-        <div class="bg-slate-900 p-7 rounded-2xl border border-slate-800 hover:border-emerald-500/40 transition">
-          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-5">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 3h12v18l-6-4-6 4V3Z"/></svg>
-          </div>
-          <h3 class="text-lg font-bold text-white mb-2">Save your spots</h3>
-          <p class="text-slate-400 text-sm leading-relaxed">Keep your go-to chargers one tap away.</p>
-        </div>
-      </div>
-
-      <!-- App screens -->
-      <div class="grid md:grid-cols-3 gap-10 mt-20 items-start">
-        <figure class="flex flex-col items-center">
-          <div class="w-full max-w-[260px] bg-slate-800 rounded-[32px] border-4 border-slate-700 shadow-2xl p-2 mb-4">
-            <img src="shot-map.jpg" alt="Map of chargers with green available and amber busy pins" width="640" height="1391" loading="lazy" class="w-full h-auto rounded-[24px]">
-          </div>
-          <figcaption class="text-center">
-            <p class="font-semibold text-white">Every charger, one map</p>
-            <p class="text-xs text-slate-400 mt-1">2,600+ chargers from LTA DataMall.</p>
-          </figcaption>
-        </figure>
-        <figure class="flex flex-col items-center">
-          <div class="w-full max-w-[260px] bg-slate-800 rounded-[32px] border-4 border-slate-700 shadow-2xl p-2 mb-4">
-            <img src="shot-parking.jpg" alt="Charger card showing the HDB parking fee that applies now and a question asking if the fee is right" width="640" height="1391" loading="lazy" class="w-full h-auto rounded-[24px]">
-          </div>
-          <figcaption class="text-center">
-            <p class="font-semibold text-white">Charging and parking costs</p>
-            <p class="text-xs text-slate-400 mt-1">Shown together, before you drive.</p>
-          </figcaption>
-        </figure>
-        <figure class="flex flex-col items-center">
-          <div class="w-full max-w-[260px] bg-slate-800 rounded-[32px] border-4 border-slate-700 shadow-2xl p-2 mb-4">
-            <img src="shot-filters.jpg" alt="Filters for availability, minimum speed, AC or DC, connector and distance" width="640" height="1391" loading="lazy" class="w-full h-auto rounded-[24px]">
-          </div>
-          <figcaption class="text-center">
-            <p class="font-semibold text-white">Find the right charger fast</p>
-            <p class="text-xs text-slate-400 mt-1">Speed, connector, distance and free parking.</p>
-          </figcaption>
+          <figcaption class="relative mt-4 text-center text-xs text-slate-400">Screenshot from the app. Status and prices change.</figcaption>
         </figure>
       </div>
     </div>
   </section>
 
-  <!-- Parking fees spotlight -->
-  <section id="parking" class="scroll-mt-20 py-24 px-6">
-    <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
-      <div class="flex justify-center order-2 lg:order-1">
-        <div class="relative">
-          <div class="absolute inset-6 rounded-[40px] bg-emerald-500/20 blur-3xl" aria-hidden="true"></div>
-          <div class="relative w-[260px] sm:w-[300px] bg-slate-800 rounded-[36px] border-4 border-slate-700 shadow-2xl p-2 rotate-[2deg]">
-            <img src="shot-parking.jpg" alt="Parking now: $0.60 per 30 minutes at an HDB car park, with Yes and No buttons to confirm the fee" width="640" height="1391" loading="lazy" class="w-full h-auto rounded-[28px]">
-          </div>
-        </div>
+  <!-- 2. How it works -->
+  <section id="how-it-works" aria-labelledby="how-title" class="scroll-mt-20 py-16 sm:py-20 bg-slate-950 border-y border-slate-800">
+    <div class="max-w-6xl mx-auto px-5 sm:px-6">
+      <div class="text-center mb-10 sm:mb-12">
+        <p class="text-emerald-400 font-semibold text-xs tracking-widest uppercase mb-3">How it works</p>
+        <h2 id="how-title" class="text-3xl md:text-4xl font-bold text-white">From search to plug-in in four steps</h2>
       </div>
-      <div class="order-1 lg:order-2 text-center lg:text-left">
-        <span class="text-emerald-400 font-semibold text-xs tracking-widest uppercase mb-3 block">New in Where2Charge</span>
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-5">The parking fee, not just the charging fee</h2>
-        <p class="text-slate-400 text-base md:text-lg leading-relaxed mb-8">
-          Charging is only half the bill. Each charger shows the fee of the car park it's in, at the current Singapore time.
-        </p>
-        <ul class="space-y-4 text-left max-w-xl mx-auto lg:mx-0">
-          <li class="flex gap-3"><span class="mt-1.5 w-2 h-2 rounded-full bg-emerald-400 shrink-0"></span><p class="text-slate-300 text-sm leading-relaxed"><strong class="text-white">HDB, mall, hotel and JTC car parks.</strong> Rates from public data, with public holidays counted as Sundays.</p></li>
-          <li class="flex gap-3"><span class="mt-1.5 w-2 h-2 rounded-full bg-emerald-400 shrink-0"></span><p class="text-slate-300 text-sm leading-relaxed"><strong class="text-white">Free parking filter.</strong> Show only chargers where parking is free right now.</p></li>
-          <li class="flex gap-3"><span class="mt-1.5 w-2 h-2 rounded-full bg-emerald-400 shrink-0"></span><p class="text-slate-300 text-sm leading-relaxed"><strong class="text-white">Checked by drivers.</strong> Answer "Is this parking fee right?" or report a new fee with a photo of the rate sign. Each fee shows when it was last updated or confirmed.</p></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Community -->
-  <section id="community" class="scroll-mt-20 py-24 px-6 bg-slate-950 border-y border-slate-800">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-14">
-        <span class="text-emerald-400 font-semibold text-xs tracking-widest uppercase mb-3 block">Built by drivers, for drivers</span>
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-5">Help us build the best charging map in Singapore</h2>
-        <p class="text-slate-400 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-          Where2Charge gets better with every driver who joins. Browsing needs no account; sign in to save chargers and share what you find.
-        </p>
-      </div>
-
-      <ol class="grid md:grid-cols-3 gap-6">
-        <li class="relative bg-slate-800/50 border border-slate-700/70 rounded-2xl p-7">
-          <span class="text-5xl font-extrabold text-emerald-500/20 absolute top-4 right-6" aria-hidden="true">1</span>
-          <h3 class="text-lg font-bold text-white mb-2">Review</h3>
-          <p class="text-sm text-slate-400">Rate the charger. Was it working, easy to find, worth the trip?</p>
+      <ol class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <li class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+          <span class="flex w-9 h-9 items-center justify-center rounded-full bg-emerald-500 text-slate-950 font-extrabold mb-4" aria-hidden="true">1</span>
+          <h3 class="text-lg font-bold text-white mb-1.5">Find a charger</h3>
+          <p class="text-sm text-slate-300 leading-relaxed">Search a place or use your location to see public chargers on the map.</p>
         </li>
-        <li class="relative bg-slate-800/50 border border-slate-700/70 rounded-2xl p-7">
-          <span class="text-5xl font-extrabold text-emerald-500/20 absolute top-4 right-6" aria-hidden="true">2</span>
-          <h3 class="text-lg font-bold text-white mb-2">Check the fee</h3>
-          <p class="text-sm text-slate-400">Confirm the parking fee, or report a different one with a photo of the sign.</p>
+        <li class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+          <span class="flex w-9 h-9 items-center justify-center rounded-full bg-emerald-500 text-slate-950 font-extrabold mb-4" aria-hidden="true">2</span>
+          <h3 class="text-lg font-bold text-white mb-1.5">Check its status</h3>
+          <p class="text-sm text-slate-300 leading-relaxed">See how many connectors are available or in use, and when the status was last updated.</p>
         </li>
-        <li class="relative bg-slate-800/50 border border-slate-700/70 rounded-2xl p-7">
-          <span class="text-5xl font-extrabold text-emerald-500/20 absolute top-4 right-6" aria-hidden="true">3</span>
-          <h3 class="text-lg font-bold text-white mb-2">Fill the gaps</h3>
-          <p class="text-sm text-slate-400">Add a missing charger or a price, so the next driver knows.</p>
+        <li class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+          <span class="flex w-9 h-9 items-center justify-center rounded-full bg-emerald-500 text-slate-950 font-extrabold mb-4" aria-hidden="true">3</span>
+          <h3 class="text-lg font-bold text-white mb-1.5">Line up a backup</h3>
+          <p class="text-sm text-slate-300 leading-relaxed">Turn on "Available now" and pick another compatible charger close by.</p>
+        </li>
+        <li class="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+          <span class="flex w-9 h-9 items-center justify-center rounded-full bg-emerald-500 text-slate-950 font-extrabold mb-4" aria-hidden="true">4</span>
+          <h3 class="text-lg font-bold text-white mb-1.5">Navigate</h3>
+          <p class="text-sm text-slate-300 leading-relaxed">Tap Navigate to open directions in Apple Maps on iPhone, your maps app on Android, or Google Maps on a computer.</p>
         </li>
       </ol>
-      <p class="text-center text-xs text-slate-500 mt-8">Reviews can be reported in the app and are moderated within 24 hours.</p>
     </div>
   </section>
 
-  <!-- Feedback + sign-off -->
-  <section id="feedback" class="scroll-mt-20 py-24 px-6">
-    <div class="max-w-4xl mx-auto bg-gradient-to-br from-emerald-500/15 via-slate-800 to-slate-900 border border-emerald-500/20 rounded-3xl p-8 md:p-12 text-center">
-      <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">This is just the beginning</h2>
-      <p class="text-slate-300 leading-relaxed max-w-2xl mx-auto mb-8">
-        Where2Charge is now on the App Store and Google Play, and more features are on the way. Got an idea or spotted something we should fix? Tap <strong class="text-white">"Send feedback"</strong> in the app, or message us. We read every message.
-      </p>
-      <a href="https://wa.me/6581683119?text=Hi%20Where2Charge%20team,%20I%20have%20some%20feedback:%20"
-         target="_blank" rel="noopener"
-         onclick="gtag('event', 'click', {'event_category': 'Feedback', 'event_label': 'Send feedback'});"
-         class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-3.5 px-8 rounded-full transition">
-        💬 Send feedback
-      </a>
+  <!-- 3. Charger discovery -->
+  <section id="discover" aria-labelledby="discover-title" class="scroll-mt-20 py-16 sm:py-24 px-5 sm:px-6">
+    <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+      <div class="text-center lg:text-left">
+        <p class="text-emerald-400 font-semibold text-xs tracking-widest uppercase mb-3">Charger discovery</p>
+        <h2 id="discover-title" class="text-3xl md:text-4xl font-bold text-white mb-5">Show only the chargers that fit your car</h2>
+        <p class="text-slate-300 text-base md:text-lg leading-relaxed mb-7">
+          Public chargers across Singapore, listed from LTA DataMall, on one map. Narrow them down in a few taps.
+        </p>
+        <ul class="space-y-4 text-left max-w-xl mx-auto lg:mx-0">
+          <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-emerald-400 shrink-0" aria-hidden="true"></span><p class="text-slate-300 text-sm leading-relaxed"><strong class="text-white">Available now only.</strong> Hide chargers that are busy, offline or have no current status.</p></li>
+          <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-emerald-400 shrink-0" aria-hidden="true"></span><p class="text-slate-300 text-sm leading-relaxed"><strong class="text-white">AC or DC, and connector.</strong> Type 2, Combo 2 (CCS2) or CHAdeMO.</p></li>
+          <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-emerald-400 shrink-0" aria-hidden="true"></span><p class="text-slate-300 text-sm leading-relaxed"><strong class="text-white">Minimum charging speed.</strong> 22, 50 or 150 kW and up.</p></li>
+          <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-emerald-400 shrink-0" aria-hidden="true"></span><p class="text-slate-300 text-sm leading-relaxed"><strong class="text-white">Distance.</strong> Within 2, 5 or 10 km of you or the place you searched.</p></li>
+        </ul>
+        <p class="mt-6 text-xs text-slate-400 max-w-xl mx-auto lg:mx-0">Status comes from operators' public data and is refreshed regularly, not second by second. The app shows when it was last updated and marks chargers that have no current status.</p>
+      </div>
+      <figure class="flex justify-center">
+        <div class="w-[250px] sm:w-[290px] bg-slate-800 rounded-[36px] border-4 border-slate-700 shadow-2xl p-2">
+          <img src="shot-filters.jpg" alt="Filters screen: Available now only, minimum speed (22, 50 or 150 kW), current (AC or DC), connector (CHAdeMO, Combo 2, Type 2), distance (2, 5 or 10 km) and saved chargers only." width="640" height="1385" loading="lazy" class="w-full h-auto rounded-[28px]">
+        </div>
+      </figure>
+    </div>
+  </section>
 
-      <div class="mt-12 pt-8 border-t border-slate-700/60">
-        <p class="text-slate-400 italic">Thanks for charging with us,</p>
-        <p class="text-white font-semibold mt-1">The Where2Charge Team</p>
+  <!-- 4. Nearby alternatives -->
+  <section id="backup" aria-labelledby="backup-title" class="scroll-mt-20 py-16 sm:py-24 px-5 sm:px-6 bg-slate-950 border-y border-slate-800">
+    <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+      <figure class="flex justify-center order-2 lg:order-1">
+        <div class="w-[250px] sm:w-[290px] bg-slate-800 rounded-[36px] border-4 border-slate-700 shadow-2xl p-2">
+          <img src="shot-available.jpg" alt="Charger list with the Available now filter on, sorted by nearest: ION Orchard 95 m away with 2 of 4 available, Embassy of Ireland 124 m away with 2 of 4 available." width="640" height="1385" loading="lazy" class="w-full h-auto rounded-[28px]">
+        </div>
+      </figure>
+      <div class="order-1 lg:order-2 text-center lg:text-left">
+        <p class="text-emerald-400 font-semibold text-xs tracking-widest uppercase mb-3">Nearby alternatives</p>
+        <h2 id="backup-title" class="text-3xl md:text-4xl font-bold text-white mb-5">First choice taken? Your backup is a tap away</h2>
+        <p class="text-slate-300 text-base md:text-lg leading-relaxed mb-7">
+          Bays fill up. Before you set off, or when you arrive to find yours occupied, check what else is close by.
+        </p>
+        <ol class="space-y-4 text-left max-w-xl mx-auto lg:mx-0">
+          <li class="flex gap-3"><span class="flex w-6 h-6 shrink-0 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-300 text-xs font-bold" aria-hidden="true">1</span><p class="text-slate-300 text-sm leading-relaxed"><strong class="text-white">Search where you're going</strong>, or use your location. The list sorts by nearest to that spot.</p></li>
+          <li class="flex gap-3"><span class="flex w-6 h-6 shrink-0 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-300 text-xs font-bold" aria-hidden="true">2</span><p class="text-slate-300 text-sm leading-relaxed"><strong class="text-white">Turn on "Available now"</strong> and set your connector, so only chargers your car can use with a free connector remain.</p></li>
+          <li class="flex gap-3"><span class="flex w-6 h-6 shrink-0 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-300 text-xs font-bold" aria-hidden="true">3</span><p class="text-slate-300 text-sm leading-relaxed"><strong class="text-white">Compare and go.</strong> Each result shows distance, available connectors, speed and price where published. Save the ones you use often.</p></li>
+        </ol>
       </div>
     </div>
   </section>
 
-  <!-- CPO partners (secondary) -->
-  <section id="cpo" class="border-t border-slate-800 bg-slate-950 py-12 px-6">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+  <!-- 5. Prices and parking -->
+  <section id="prices-parking" aria-labelledby="prices-title" class="scroll-mt-20 py-16 sm:py-24 px-5 sm:px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+        <p class="text-emerald-400 font-semibold text-xs tracking-widest uppercase mb-3">Charging prices and parking</p>
+        <h2 id="prices-title" class="text-3xl md:text-4xl font-bold text-white mb-5">Know the charging price and parking rate, where we have them</h2>
+        <p class="text-slate-300 text-base md:text-lg leading-relaxed">Charging and parking are often billed separately. Where2Charge shows both side by side when the information is available, and tells you when it isn't.</p>
+      </div>
+
+      <div class="grid lg:grid-cols-5 gap-8 items-center">
+        <figure class="lg:col-span-2 flex justify-center">
+          <div class="w-full max-w-[390px] rounded-3xl border border-slate-700 bg-slate-800 p-2 shadow-2xl">
+            <img src="shot-parking-detail.jpg" alt="Charger details in the app: a Type 2 AC connector at 7.4 kW and $0.6950 per kWh marked Available, and below it the HDB car park rate: Parking now $0.60 per 30 minutes." width="780" height="675" loading="lazy" class="w-full h-auto rounded-2xl">
+          </div>
+        </figure>
+        <div class="lg:col-span-3 grid sm:grid-cols-2 gap-5">
+          <div class="bg-slate-800/50 border border-slate-700/70 rounded-2xl p-6">
+            <h3 class="text-lg font-bold text-white mb-2">Charging prices</h3>
+            <ul class="space-y-2 text-sm text-slate-300 leading-relaxed list-disc ml-4">
+              <li>Published prices are shown per kWh, for each connector.</li>
+              <li>Some prices are added by drivers and labelled as community prices.</li>
+              <li>Not every charger has a price yet. When a price is missing, none is shown; it is never displayed as $0 or as free charging.</li>
+            </ul>
+          </div>
+          <div class="bg-slate-800/50 border border-slate-700/70 rounded-2xl p-6">
+            <h3 class="text-lg font-bold text-white mb-2">Parking information</h3>
+            <ul class="space-y-2 text-sm text-slate-300 leading-relaxed list-disc ml-4">
+              <li>"Parking now" shows the rate for the current Singapore time, with its source, such as "Official HDB rate".</li>
+              <li>Rates come from public HDB, LTA, JTC and URA data, plus driver reports.</li>
+              <li>Coverage isn't complete. If we can't find or read a rate, the app says "Parking fee unknown". If the car park match is uncertain, it asks you to check the signs on site.</li>
+            </ul>
+          </div>
+          <div class="sm:col-span-2 bg-slate-800/50 border border-slate-700/70 rounded-2xl p-6">
+            <h3 class="text-lg font-bold text-white mb-2">Checked by drivers</h3>
+            <p class="text-sm text-slate-300 leading-relaxed">Answer "Is this parking fee right?" or report a different fee with a photo of the rate sign. The "Free parking" filter only includes car parks whose rate data says parking is free right now. An unknown rate is never counted as free.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Reviews, saved chargers and community -->
+  <section id="community" aria-labelledby="community-title" class="scroll-mt-20 py-16 sm:py-24 px-5 sm:px-6 bg-slate-950 border-y border-slate-800">
+    <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+      <div class="text-center lg:text-left">
+        <p class="text-emerald-400 font-semibold text-xs tracking-widest uppercase mb-3">Built with drivers</p>
+        <h2 id="community-title" class="text-3xl md:text-4xl font-bold text-white mb-5">Reviews, saved chargers and your feedback</h2>
+        <p class="text-slate-300 text-base md:text-lg leading-relaxed mb-7">Browsing needs no account. Sign in when you want to save chargers or share what you found.</p>
+        <ul class="space-y-4 text-left max-w-xl mx-auto lg:mx-0">
+          <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-emerald-400 shrink-0" aria-hidden="true"></span><p class="text-slate-300 text-sm leading-relaxed"><strong class="text-white">Driver reviews.</strong> Rate a charger and add a photo. Was it working, easy to find, worth the trip? Reviews can be reported in the app, and reports are checked within 24 hours.</p></li>
+          <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-emerald-400 shrink-0" aria-hidden="true"></span><p class="text-slate-300 text-sm leading-relaxed"><strong class="text-white">Saved chargers.</strong> Keep your regular spots in the Saved tab, and filter the map to show only them.</p></li>
+          <li class="flex gap-3"><span class="mt-2 w-2 h-2 rounded-full bg-emerald-400 shrink-0" aria-hidden="true"></span><p class="text-slate-300 text-sm leading-relaxed"><strong class="text-white">Fill the gaps.</strong> Add a missing charger or a price, and confirm or report parking fees, so the next driver knows.</p></li>
+        </ul>
+        <div class="mt-8 flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-3">
+          <a href="https://wa.me/6581683119?text=Hi%20Where2Charge%20team,%20I%20have%20some%20feedback:%20"
+             target="_blank" rel="noopener"
+             onclick="gtag('event', 'click', {'event_category': 'Feedback', 'event_label': 'Send feedback'});"
+             class="shrink-0 whitespace-nowrap inline-flex items-center gap-2 border border-slate-600 hover:border-emerald-400 hover:text-emerald-300 text-slate-100 font-semibold py-3 px-6 rounded-full transition text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300">
+            Send feedback on WhatsApp<span class="sr-only"> (opens in a new tab)</span>
+          </a>
+          <p class="text-xs text-slate-400 sm:self-center">Or tap "Send feedback" in the app. We read every message.</p>
+        </div>
+      </div>
+      <figure class="flex justify-center">
+        <div class="w-[250px] sm:w-[290px] bg-slate-800 rounded-[36px] border-4 border-slate-700 shadow-2xl p-2">
+          <img src="shot-charger.jpg" alt="ION Orchard charger details: 2 of 4 available, open 24/7, 95 m away, with Navigate, Save, Share and Reviews buttons, and each connector marked In use or Available with its speed and price." width="640" height="1385" loading="lazy" class="w-full h-auto rounded-[28px]">
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 7. Final CTA -->
+  <section aria-labelledby="cta-title" class="py-16 sm:py-24 px-5 sm:px-6">
+    <div class="max-w-4xl mx-auto bg-gradient-to-br from-emerald-500/15 via-slate-800 to-slate-900 border border-emerald-500/20 rounded-3xl p-8 md:p-12 text-center">
+      <h2 id="cta-title" class="text-3xl md:text-4xl font-bold text-white mb-4">Your next charge, with a backup ready</h2>
+      <p class="text-slate-300 leading-relaxed max-w-2xl mx-auto mb-8">Open Where2Charge in your browser now, or get the app for iPhone or Android.</p>
+      <a href="https://app.where2charge.4abnc.com" target="_blank" rel="noopener"
+         class="w-full sm:w-auto h-14 inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-lg font-bold px-8 rounded-xl shadow-lg shadow-emerald-500/20 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300">
+        Open Where2Charge <span aria-hidden="true">→</span><span class="sr-only"> (opens the web app in a new tab)</span>
+      </a>
+      <p class="mt-3 text-sm text-slate-300">Free to use. No sign-up needed to browse.</p>
+      <div class="mt-7 flex flex-wrap items-center justify-center gap-3">
+        <a href="https://apps.apple.com/app/where2charge-ev-charging-sg/id6819050525" target="_blank" rel="noopener"
+           onclick="gtag('event', 'click', {'event_category': 'App_Download', 'event_label': 'App Store'});"
+           class="inline-block rounded-lg hover:opacity-90 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300">
+          <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83"
+               alt="Download Where2Charge on the App Store" width="150" height="50" loading="lazy" class="h-11 sm:h-12 w-auto">
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.abnc.where2charge" target="_blank" rel="noopener"
+           onclick="gtag('event', 'click', {'event_category': 'App_Download', 'event_label': 'Google Play'});"
+           class="inline-block rounded-lg hover:opacity-90 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+               alt="Get Where2Charge on Google Play" width="169" height="50" loading="lazy" class="h-11 sm:h-12 w-auto">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Charge point operators (secondary) -->
+  <section id="operators" aria-labelledby="operators-title" class="scroll-mt-20 border-t border-slate-800 bg-slate-950 py-12 px-5 sm:px-6">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
       <div>
-        <p class="text-emerald-400 font-semibold text-xs tracking-widest uppercase mb-1">For Charge Point Operators</p>
-        <p class="text-slate-300 text-sm">Public chargers are already listed from LTA DataMall. Share live availability and prices through OCPI 2.2.1. Talk to our integration team.</p>
+        <h2 id="operators-title" class="text-emerald-400 font-semibold text-xs tracking-widest uppercase mb-2">For charge point operators</h2>
+        <p class="text-slate-300 text-sm leading-relaxed max-w-3xl">Public chargers are already listed from LTA DataMall. To share availability and tariffs directly through OCPI 2.2.1, talk to our integration team.</p>
       </div>
       <a href="https://wa.me/6581683119?text=Hi%204ABNC%20team,%20I%20would%20like%20to%20discuss%20CPO/Fleet%20integration%20on%20your%20EV%20platform."
          target="_blank" rel="noopener"
          onclick="gtag('event', 'click', {'event_category': 'CPO_Lead', 'event_label': 'WhatsApp Integration'});"
-         class="shrink-0 border border-slate-600 hover:border-emerald-400 hover:text-emerald-300 text-slate-200 font-semibold py-2.5 px-6 rounded-full transition text-sm">
-        Partner with us
+         class="shrink-0 border border-slate-600 hover:border-emerald-400 hover:text-emerald-300 text-slate-200 font-semibold py-2.5 px-6 rounded-full transition text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300">
+        Talk to our integration team<span class="sr-only"> on WhatsApp (opens in a new tab)</span>
       </a>
     </div>
   </section>
 
+  </main>
+
   <!-- Footer -->
-  <footer class="border-t border-slate-800 py-10 bg-slate-950 text-slate-500 text-xs">
+  <footer class="border-t border-slate-800 py-10 bg-slate-950 text-slate-400 text-xs">
     <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
       <div class="text-center md:text-left">
-        <p class="text-slate-400 font-medium">Where2Charge Powered by <a href="https://4abnc.com" class="hover:text-slate-200 underline">4ABnC</a></p>
+        <p class="text-slate-300 font-medium">Where2Charge Powered by <a href="https://4abnc.com" class="hover:text-slate-100 underline">4ABnC</a></p>
         <p class="mt-1">© 2026 Where2Charge. All rights reserved.</p>
       </div>
-      <div class="flex gap-6">
-        <a href="https://app.where2charge.4abnc.com" target="_blank" rel="noopener" class="hover:text-slate-300 transition">Open the app</a>
-        <a href="/privacy.html" class="hover:text-slate-300 transition">Privacy Policy</a>
-      </div>
+      <nav aria-label="Footer" class="flex gap-6">
+        <a href="https://app.where2charge.4abnc.com" target="_blank" rel="noopener" class="hover:text-slate-200 transition">Open the web app</a>
+        <a href="/privacy.html" class="hover:text-slate-200 transition">Privacy Policy</a>
+      </nav>
     </div>
   </footer>
 
