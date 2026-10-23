@@ -41,7 +41,8 @@ for (const file of existsSync(SRC) ? readdirSync(SRC) : []) {
     author: data.author ? String(data.author) : 'Where2Charge Team',
     cover: data.cover || '',
     minutes: Math.max(1, Math.round(words / WORDS_PER_MIN)),
-    html: marked.parse(content, { gfm: true }),
+    // app-store links in article bodies get rel=nofollow, matching the rest of the site
+    html: marked.parse(content, { gfm: true }).replace(/<a href="(https:\/\/(?:play\.google\.com|apps\.apple\.com)[^"]*)"/g, '<a rel="nofollow noopener" target="_blank" href="$1"'),
   });
 }
 const slugs = new Set();
