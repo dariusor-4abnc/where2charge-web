@@ -191,4 +191,25 @@ const latest = articles.length ? articles.map((a) => a.updated).sort().pop() : '
 const entries = [...existing, ...(articles.length ? [{ loc: `${SITE}/guides`, lastmod: latest }] : []), ...articles.map((a) => ({ loc: `${SITE}/guides/${a.slug}`, lastmod: a.updated }))];
 writeFileSync(smPath, `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries.map((u) => `  <url>\n    <loc>${u.loc}</loc>${u.lastmod ? `\n    <lastmod>${u.lastmod}</lastmod>` : ''}\n  </url>`).join('\n')}\n</urlset>\n`);
 
+
+// ---------- homepage: latest guides between the GUIDES markers in index.html ----------
+const boltSvg = '<svg viewBox="0 0 36 36" aria-hidden="true" focusable="false"><circle cx="18" cy="18" r="16" fill="#00ff99"/><path d="M20.5 6 11 19.5h6.2L15.5 30 25 16.5h-6.2z" fill="#020617"/></svg>';
+const featured = articles.slice(0, 3);
+const homeCards = featured.map((a) => `        <li class="gd-card">
+          <a href="/guides/${a.slug}">
+            <div class="gd-art">${a.cover ? `<img src="${esc(a.cover)}" alt="" width="600" height="315" loading="lazy">` : boltSvg}<span class="gd-tag">Guide</span></div>
+            <div class="gd-body">
+              <p class="gd-meta"><time datetime="${a.date}">${longDate(a.date)}</time> · ${a.minutes} min read</p>
+              <h3>${esc(a.title)}</h3>
+              <p class="gd-desc">${esc(a.description)}</p>
+              <span class="gd-more">Read the guide <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+        </li>`).join('\n');
+const homePath = join(ROOT, 'index.html');
+const home = readFileSync(homePath, 'utf8');
+const block = featured.length ? `<!-- GUIDES:START -->\n      <ul class="gd-grid${featured.length === 1 ? ' gd-solo' : ''}">\n${homeCards}\n      </ul>\n<!-- GUIDES:END -->` : '<!-- GUIDES:START -->\n<!-- GUIDES:END -->';
+if (!home.includes('<!-- GUIDES:START -->')) throw new Error('index.html is missing the GUIDES markers');
+writeFileSync(homePath, home.replace(/<!-- GUIDES:START -->[\s\S]*?<!-- GUIDES:END -->/, () => block));
+
 console.log(`Built ${articles.length} article(s) -> guides/`);
