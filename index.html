@@ -31,14 +31,8 @@
   <link rel="preload" as="image" href="shot-list.jpg">
   <link rel="stylesheet" href="tailwind.css">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-66145CF3RP"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-66145CF3RP');
-  </script>
+  <!-- Google Analytics, loaded only after the visitor accepts analytics cookies -->
+  <script src="consent.js"></script>
 
   <style>
     .dot-grid {
@@ -340,6 +334,7 @@
       <nav aria-label="Footer" class="flex gap-6">
         <a href="https://app.where2charge.4abnc.com" target="_blank" rel="noopener" class="hover:text-slate-200 transition">Open the web app</a>
         <a href="/privacy.html" class="hover:text-slate-200 transition">Privacy Policy</a>
+        <button type="button" onclick="w2cCookieSettings()" class="hover:text-slate-200 transition">Cookie settings</button>
       </nav>
     </div>
   </footer>

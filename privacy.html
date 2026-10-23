@@ -8,14 +8,8 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="stylesheet" href="tailwind.css">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-66145CF3RP"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-66145CF3RP');
-  </script>
+  <!-- Google Analytics, loaded only after the visitor accepts analytics cookies -->
+  <script src="consent.js"></script>
 </head>
 <body class="bg-slate-900 text-slate-200 font-sans leading-relaxed">
   <main class="p-6 sm:p-8 max-w-4xl mx-auto">
@@ -41,7 +35,7 @@
     <li><strong>What you contribute:</strong> reviews and ratings, prices, chargers you add, parking fee reports (with an optional photo of the rate sign), your answers to "Is this parking fee right?", reports about reviews, and feedback messages.</li>
     <li><strong>Saved chargers:</strong> the chargers you bookmark.</li>
     <li><strong>Search:</strong> places you search for, which are looked up to move the map.</li>
-    <li><strong>Website analytics:</strong> this website (where2charge.4abnc.com) uses Google Analytics to count visits and clicks, which sets cookies. The web version of the app (app.where2charge.4abnc.com) uses Google Analytics to count visits and which features are used, such as filters and directions. This sets cookies. It does not receive your location or account details. The iPhone and Android apps do not use Google Analytics.</li>
+    <li><strong>Website analytics:</strong> this website (where2charge.4abnc.com) uses Google Analytics to count visits and clicks, which sets cookies. The web version of the app (app.where2charge.4abnc.com) uses Google Analytics to count visits and which features are used, such as filters and directions. This sets cookies. It does not receive your location or account details. The iPhone and Android apps do not use Google Analytics. Google Analytics only runs if you accept analytics cookies when asked. You can change your choice at any time under Cookie settings: at the bottom of this website's pages, or in the web app under Account.</li>
   </ul>
 
   <h2 class="text-xl font-bold text-white mt-10 mb-3">2. How we use it</h2>
@@ -86,8 +80,9 @@
     Email: <a href="mailto:enquires@4abnc.com?subject=Where2Charge%20privacy" class="text-emerald-400 underline">enquires@4abnc.com</a><br>
     WhatsApp: <a href="https://wa.me/6581683119" class="text-emerald-400 underline" target="_blank" rel="noopener">+65 8168 3119</a></p>
 
-  <div class="mt-12 pt-6 border-t border-slate-800 text-sm">
+  <div class="mt-12 pt-6 border-t border-slate-800 text-sm flex flex-wrap gap-6">
     <a href="/" class="text-emerald-400 hover:underline">← Back to Where2Charge</a>
+    <button type="button" onclick="w2cCookieSettings()" class="text-emerald-400 hover:underline">Cookie settings</button>
   </div>
   </main>
 </body>
