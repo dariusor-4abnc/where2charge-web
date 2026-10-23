@@ -221,7 +221,7 @@ Where2Charge helps you find charging points across Singapore and check their rep
 
 ### Step 1: Open Where2Charge
 
-Open the [Where2Charge EV charging app on Google Play](https://play.google.com/store/apps/details?id=com.abnc.where2charge).
+Open the [Where2Charge live map](https://app.where2charge.4abnc.com) in your browser. No download needed.
 
 The app provides a map of EV charging points across Singapore, with live-status information and tools for finding nearby chargers.
 
@@ -272,9 +272,7 @@ Understanding HDB EV charging rates in 2026 means looking beyond the price per k
 
 The SP Mobility–ChargEco acquisition has changed the competitive landscape, while new HDB fast-charging facilities such as Tengah's hub give drivers more options. But more chargers do not eliminate the frustration of arriving at an occupied bay.
 
-**Rates mean nothing if the charger is occupied. Before you drive to that cheaper Charge+ lot at the next block, check if it's actually empty on the Where2Charge live map.**
-
-[Find an available EV charger with Where2Charge](https://play.google.com/store/apps/details?id=com.abnc.where2charge)
+[Find an available EV charger with Where2Charge](https://app.where2charge.4abnc.com)
 
 Free to browse. No sign-up required to explore chargers.
 
