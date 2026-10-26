@@ -1,8 +1,9 @@
 ---
 title: "Singapore's EV Charging Price Gap: How to Save Money on Every Charge"
 date: 2026-10-26
-description: "EV charging prices in Singapore vary widely by operator, location and speed. See the price gap, why the cheapest charger may be restricted, and how to save."
-keyword: "Singapore EV charging prices"
+description: "Singapore EV charging prices 2026: see the price gap by operator, AC vs DC, why the cheapest charger may be restricted, and how to save on every charge."
+keyword: "Singapore EV charging prices 2026"
+secondary: ["EV charging rates Singapore", "cheapest EV charging Singapore", "HDB EV charging rates", "AC vs DC charging prices", "Where2Charge"]
 author: "Where2Charge Team"
 ---
 

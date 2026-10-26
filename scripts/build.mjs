@@ -38,6 +38,7 @@ for (const file of existsSync(SRC) ? readdirSync(SRC) : []) {
     updated: data.updated ? iso(data.updated) : iso(data.date),
     description: String(data.description),
     keyword: data.keyword ? String(data.keyword) : '',
+    secondary: Array.isArray(data.secondary) ? data.secondary.map(String) : [],
     author: data.author ? String(data.author) : 'Where2Charge Team',
     cover: data.cover || '',
     minutes: Math.max(1, Math.round(words / WORDS_PER_MIN)),
@@ -142,7 +143,7 @@ for (const a of articles) {
     author: { '@type': 'Person', name: a.author },
     publisher: { '@type': 'Organization', name: 'Where2Charge', logo: { '@type': 'ImageObject', url: `${SITE}/logo.png` } },
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
-    ...(a.keyword ? { keywords: a.keyword } : {}),
+    ...(a.keyword ? { keywords: [a.keyword, ...a.secondary].join(', ') } : {}),
   };
   const extra = `\n  <meta property="article:published_time" content="${a.date}">\n  <meta property="article:modified_time" content="${a.updated}">\n  <meta property="article:author" content="${esc(a.author)}">\n  <script type="application/ld+json">\n${JSON.stringify(ld, null, 2).replace(/</g, '\\u003c')}\n  </script>`;
   const body = `<main id="main" class="g-wrap g-article-wrap">
