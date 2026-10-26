@@ -20,6 +20,12 @@ const iso = (d) => (d instanceof Date ? d.toISOString() : String(d)).slice(0, 10
 const abs = (p) => (!p ? DEFAULT_IMAGE : /^https?:\/\//.test(p) ? p : `${SITE}/${String(p).replace(/^\//, '')}`);
 const longDate = (d) => new Date(d + 'T00:00:00Z').toLocaleDateString('en-SG', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
 
+// heading ids so sections can be linked to (#anchor)
+marked.use({ renderer: { heading(text, level) {
+  const id = text.replace(/<[^>]+>/g, '').toLowerCase().replace(/&[a-z#0-9]+;/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  return `<h${level} id="${id}">${text}</h${level}>\n`;
+} } });
+
 // ---------- load content ----------
 const articles = [];
 for (const file of existsSync(SRC) ? readdirSync(SRC) : []) {
@@ -122,6 +128,15 @@ ${footer}
 rmSync(OUT, { recursive: true, force: true });
 mkdirSync(OUT, { recursive: true });
 
+const related = (a) => {
+  const others = articles.filter((x) => x.slug !== a.slug).slice(0, 2);
+  if (!others.length) return '';
+  return `<nav class="g-related" aria-labelledby="related-title">
+      <h2 id="related-title">Keep reading</h2>
+      <ul>${others.map((x) => `<li><a href="/guides/${x.slug}"><strong>${esc(x.title)}</strong><span>${x.minutes} min read</span></a></li>`).join('')}</ul>
+    </nav>`;
+};
+
 const cta = `<aside class="g-cta" aria-labelledby="cta-title">
   <h2 id="cta-title">Rates mean nothing if the charger is occupied. Check live HDB lot availability before you drive.</h2>
   <a href="${APP_URL}" target="_blank" rel="noopener" class="g-btn"
@@ -155,6 +170,7 @@ for (const a of articles) {
     <div class="g-prose">
 ${a.html}
     </div>
+    ${related(a)}
     ${cta}
   </article>
 </main>`;

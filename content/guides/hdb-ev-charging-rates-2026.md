@@ -106,7 +106,9 @@ Check the current price, charger power and any applicable session or idle fees b
 
 Charging prices can change, and different locations or charging speeds may have different tariffs. Older articles and search results may also contain outdated prices.
 
-For an accurate comparison, use the operator's app or the price displayed for the specific charging point. Where2Charge can help you discover nearby chargers and compare the information available for each location.
+For an accurate comparison, use the operator's app or the price displayed for the specific charging point. Where2Charge can help you discover nearby chargers and [compare the information available for each location on the live map](https://app.where2charge.4abnc.com).
+
+**Related guide:** see how wide the price gap really is, and why the cheapest listed charger may not be open to you, in [Singapore's EV Charging Price Gap: How to Save Money on Every Charge](/guides/singapore-ev-charging-prices-2026).
 
 ## 3. What the SP Mobility–ChargEco Acquisition Means for East Singapore
 
@@ -271,6 +273,8 @@ Where2Charge is free to use for browsing, and you do not need to sign up just to
 Understanding HDB EV charging rates in 2026 means looking beyond the price per kWh. You need to consider AC versus DC charging, local operator tariffs, competition safeguards in the East, idle fees and the availability of a compatible charging point.
 
 The SP Mobility–ChargEco acquisition has changed the competitive landscape, while new HDB fast-charging facilities such as Tengah's hub give drivers more options. But more chargers do not eliminate the frustration of arriving at an occupied bay.
+
+**Next step:** [Open the live map](https://app.where2charge.4abnc.com) to see which chargers near you are available right now. Want to cut your bill too? Read our guide to [saving money on every charge](/guides/singapore-ev-charging-prices-2026).
 
 [Find an available EV charger with Where2Charge](https://app.where2charge.4abnc.com)
 

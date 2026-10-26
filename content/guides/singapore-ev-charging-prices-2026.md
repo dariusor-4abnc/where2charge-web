@@ -21,7 +21,7 @@ For drivers who charge regularly, understanding these differences can make a mea
 
 Many EV drivers naturally choose the nearest charging point. That is convenient, but it may not always be the cheapest practical option.
 
-Imagine two charging stations near your destination. One charges S$0.69/kWh, while another charges S$0.50/kWh. If both are accessible to you, compatible with your vehicle and available when you arrive, walking an extra 100 metres could be worthwhile.
+Imagine two charging stations near your destination. (Charging at an HDB carpark? See our guide to [HDB EV charging rates in 2026](/guides/hdb-ev-charging-rates-2026).) One charges S$0.69/kWh, while another charges S$0.50/kWh. If both are accessible to you, compatible with your vehicle and available when you arrive, walking an extra 100 metres could be worthwhile.
 
 For a 40 kWh charging session:
 
@@ -108,11 +108,11 @@ When comparing chargers, check:
 - AC or DC charging speed and connector compatibility
 - Any idle fees or other operator charges
 
-Do not assume that a missing price means charging is free. Likewise, check whether a displayed price is current and whether it applies to your chosen charging point.
+Idle fees are easy to overlook: [read how they work at HDB chargers](/guides/hdb-ev-charging-rates-2026#4-warning-understand-ev-charging-idle-fees). Do not assume that a missing price means charging is free. Likewise, check whether a displayed price is current and whether it applies to your chosen charging point.
 
 ## How to Find a Cheaper Available Charger Near You
 
-This is where a charging map can make a difference. Instead of choosing a charger based only on familiarity or distance, compare nearby options before you set off.
+This is where a charging map can make a difference. [Open the Where2Charge live map](https://app.where2charge.4abnc.com) and follow along. Instead of choosing a charger based only on familiarity or distance, compare nearby options before you set off.
 
 With Where2Charge, EV drivers can use the map to explore charging locations across Singapore, check available charger information and compare listed prices where reliable pricing data is available.
 
@@ -137,6 +137,6 @@ Sometimes, the best saving is not a long detour or a complicated charging plan. 
 
 ### Ready to compare nearby charging options?
 
-[Explore the Where2Charge Singapore EV charging map](https://app.where2charge.4abnc.com) to check nearby charging locations and compare available price information before your next charge.
+[Explore the Where2Charge Singapore EV charging map](https://app.where2charge.4abnc.com) to check nearby charging locations and compare available price information before your next charge. For a closer look at residential rates, read the [complete guide to HDB EV charging rates](/guides/hdb-ev-charging-rates-2026).
 
 *Pricing note: Figures in this article are based on the Where2Charge dataset reviewed on 26 October 2026. Rates and access conditions may change. Confirm the latest operator tariff, public-access status and parking charges before travelling. Price comparisons exclude additional fees unless stated otherwise.*
