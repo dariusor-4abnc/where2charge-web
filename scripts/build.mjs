@@ -107,7 +107,7 @@ const footer = `<footer class="g-footer">
       <p>© 2026 Where2Charge. All rights reserved.</p>
     </div>
     <nav aria-label="Footer" class="g-footer-cols">
-      <div><p class="g-footer-h">Resources</p><a href="/guides">Guides</a></div>
+      <div><p class="g-footer-h">Resources</p><a href="/guides/">Guides</a></div>
       <div><p class="g-footer-h">Product</p><a href="${APP_URL}" target="_blank" rel="noopener">Open the web app</a><a href="/for-charge-point-operators.html">For operators</a></div>
       <div><p class="g-footer-h">Legal</p><a href="/privacy.html">Privacy Policy</a></div>
     </nav>
@@ -133,7 +133,7 @@ const related = (a) => {
   if (!others.length) return '';
   return `<nav class="g-related" aria-labelledby="related-title">
       <h2 id="related-title">Keep reading</h2>
-      <ul>${others.map((x) => `<li><a href="/guides/${x.slug}"><strong>${esc(x.title)}</strong><span>${x.minutes} min read</span></a></li>`).join('')}</ul>
+      <ul>${others.map((x) => `<li><a href="/guides/${x.slug}/"><strong>${esc(x.title)}</strong><span>${x.minutes} min read</span></a></li>`).join('')}</ul>
     </nav>`;
 };
 
@@ -145,7 +145,7 @@ const cta = `<aside class="g-cta" aria-labelledby="cta-title">
 </aside>`;
 
 for (const a of articles) {
-  const url = `${SITE}/guides/${a.slug}`;
+  const url = `${SITE}/guides/${a.slug}/`;
   const image = abs(a.cover);
   const ld = {
     '@context': 'https://schema.org',
@@ -163,7 +163,7 @@ for (const a of articles) {
   const extra = `\n  <meta property="article:published_time" content="${a.date}">\n  <meta property="article:modified_time" content="${a.updated}">\n  <meta property="article:author" content="${esc(a.author)}">\n  <script type="application/ld+json">\n${JSON.stringify(ld, null, 2).replace(/</g, '\\u003c')}\n  </script>`;
   const body = `<main id="main" class="g-wrap g-article-wrap">
   <article class="g-article">
-    <p class="g-crumb"><a href="/guides">← All guides</a></p>
+    <p class="g-crumb"><a href="/guides/">← All guides</a></p>
     <h1>${esc(a.title)}</h1>
     <p class="g-meta">By ${esc(a.author)} · <time datetime="${a.date}">${longDate(a.date)}</time> · ${a.minutes} min read</p>
     ${a.cover ? `<img class="g-cover" src="${esc(a.cover)}" alt="" width="1200" height="630">` : ''}
@@ -180,7 +180,7 @@ ${a.html}
 }
 
 const cards = articles.map((a) => `    <li class="g-card">
-      <a href="/guides/${a.slug}">
+      <a href="/guides/${a.slug}/">
         ${a.cover ? `<img src="${esc(a.cover)}" alt="" width="600" height="315" loading="lazy">` : ''}
         <div class="g-card-body">
           <p class="g-card-meta"><time datetime="${a.date}">${longDate(a.date)}</time> · ${a.minutes} min read</p>
@@ -196,8 +196,8 @@ const indexBody = `<main id="main" class="g-wrap">
   </section>
   ${articles.length ? `<ul class="g-grid">\n${cards}\n  </ul>` : '<p class="g-empty">New guides are on the way.</p>'}
 </main>`;
-const indexLd = `\n  <script type="application/ld+json">\n${JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'EV charging guides for Singapore', url: `${SITE}/guides` }, null, 2)}\n  </script>`;
-writeFileSync(join(OUT, 'index.html'), page(head({ title: 'EV Charging Guides for Singapore | Where2Charge', description: 'Guides on EV charging rates, charger availability and tips for drivers in Singapore, plus Where2Charge release notes.', url: `${SITE}/guides`, image: DEFAULT_IMAGE, extra: indexLd }), indexBody));
+const indexLd = `\n  <script type="application/ld+json">\n${JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'EV charging guides for Singapore', url: `${SITE}/guides/` }, null, 2)}\n  </script>`;
+writeFileSync(join(OUT, 'index.html'), page(head({ title: 'EV Charging Guides for Singapore | Where2Charge', description: 'Guides on EV charging rates, charger availability and tips for drivers in Singapore, plus Where2Charge release notes.', url: `${SITE}/guides/`, image: DEFAULT_IMAGE, extra: indexLd }), indexBody));
 
 // ---------- sitemap: keep non-guide entries, regenerate guide entries ----------
 const smPath = join(ROOT, 'sitemap.xml');
@@ -205,7 +205,7 @@ const existing = [...readFileSync(smPath, 'utf8').matchAll(/<url>\s*<loc>([^<]+)
   .map((m) => ({ loc: m[1], lastmod: m[2] }))
   .filter((u) => !u.loc.startsWith(`${SITE}/guides`));
 const latest = articles.length ? articles.map((a) => a.updated).sort().pop() : '';
-const entries = [...existing, ...(articles.length ? [{ loc: `${SITE}/guides`, lastmod: latest }] : []), ...articles.map((a) => ({ loc: `${SITE}/guides/${a.slug}`, lastmod: a.updated }))];
+const entries = [...existing, ...(articles.length ? [{ loc: `${SITE}/guides/`, lastmod: latest }] : []), ...articles.map((a) => ({ loc: `${SITE}/guides/${a.slug}/`, lastmod: a.updated }))];
 writeFileSync(smPath, `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries.map((u) => `  <url>\n    <loc>${u.loc}</loc>${u.lastmod ? `\n    <lastmod>${u.lastmod}</lastmod>` : ''}\n  </url>`).join('\n')}\n</urlset>\n`);
 
 
@@ -213,7 +213,7 @@ writeFileSync(smPath, `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="ht
 const boltSvg = '<svg viewBox="0 0 36 36" aria-hidden="true" focusable="false"><circle cx="18" cy="18" r="16" fill="#00ff99"/><path d="M20.5 6 11 19.5h6.2L15.5 30 25 16.5h-6.2z" fill="#020617"/></svg>';
 const featured = articles.slice(0, 3);
 const homeCards = featured.map((a) => `        <li class="gd-card">
-          <a href="/guides/${a.slug}">
+          <a href="/guides/${a.slug}/">
             <div class="gd-art">${a.cover ? `<img src="${esc(a.cover)}" alt="" width="600" height="315" loading="lazy">` : boltSvg}<span class="gd-tag">Guide</span></div>
             <div class="gd-body">
               <p class="gd-meta"><time datetime="${a.date}">${longDate(a.date)}</time> · ${a.minutes} min read</p>
